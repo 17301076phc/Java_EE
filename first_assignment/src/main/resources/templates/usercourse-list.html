@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>YourCourses</title>
+</head>
+<body>
+    <h1>UserCourses</h1>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>CourseName</th>
+                <th>CourseTeacher</th>
+                <th>CourseTime</th>
+                <th>CourseWare</th>
+            </tr>
+            <tr th:each ="usercourse : ${usercourses}">
+                <td th:utext="${usercourse.id}">...</td>
+                <td><a th:href="@{/usercourses/{usercourseId}(usercourseId=${usercourse.id})}" th:utext="${usercourse.name}">...</a></td>
+                <td th:utext="${usercourse.teachername}">...</td>
+                <td th:utext="${usercourse.coursetime}">...</td>
+                <td><a href="#" onclick="alert('download!');">Download</a></td>
+            </tr>
+        </table>
+        <button></button>
+    </div>
+    <br/><br/>
+    <div>
+        <nobr>
+            <span th:if="${hasPrev}"><a th:href="@{/usercourses?page={prev}(prev=${prev})}">Prev</a>&nbsp;&nbsp;&nbsp;</span>
+            <span th:if="${hasNext}"><a th:href="@{/usercourses?page={next}(next=${next})}">Next</a></span>
+        </nobr>
+    </div>
+
+</body>
+</html>

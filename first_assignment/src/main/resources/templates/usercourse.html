@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>View Course</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/style.css}"/>
+</head>
+<body>
+<h1>View Course</h1>
+<a th:href="@{/courses}">Back to Course List</a>
+<a th:href="@{/usercourses}">Back to UserCourse</a>
+<br/><br/>
+<div th:if="${usercourse}">
+    <table border="0">
+        <tr>
+            <td>ID</td>
+            <td>:</td>
+            <td th:utext="${usercourse.id}">...</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td th:utext="${usercourse.name}">...</td>
+        </tr>
+        <tr>
+            <td>Teacher</td>
+            <td>:</td>
+            <td th:utext="${usercourse.teachername}">...</td>
+        </tr>
+        <tr>
+            <td>Time</td>
+            <td>:</td>
+            <td th:utext="${usercourse.coursetime}">...</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>:</td>
+            <td th:utext="${usercourse.description}">...</td>
+        </tr>
+    </table>
+    <br/><br/>
+</div>
+<div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
+</body>
+</html>
